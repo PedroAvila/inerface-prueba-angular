@@ -1,0 +1,27 @@
+<p>Trabajadores</p>
+
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>DNI</th>
+        <th>Tipo</th>
+        <th>Sueldo</th>
+        <th>Salario - Bonificación</th>
+        <th>Monto Final</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of trabajadores | slice: desde:hasta">
+        <td>{{ item.dni }}</td>
+        <td>{{ item.tipo }}</td>
+        <td>{{ item.sueldo }}</td>
+        <td>{{ item.salarioBonificacion }}</td>
+        <td>{{ item.montoFinal }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <mat-paginator [length]="trabajadores.length"
+              [pageSize]="pageSize"
+              (page)="cambiarPagina($event)">
+              
+</mat-paginator>
